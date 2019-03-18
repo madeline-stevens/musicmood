@@ -36,7 +36,7 @@ SPOTIFY_SECRET=6************c
 
 1. GET A PLAYLIST’S TRACKS (and IDs):
 
-Sample API request:
+API endpoint:
 GET https://api.spotify.com/v1/playlists/{playlist_id}/tracks
 
 Working curl command (to be pasted into command line):
@@ -57,7 +57,7 @@ PART OF RESPONSE:
 
 2. FROM THAT RESPONSE OBJECT TARGET EACH TRACK’S ID:
 
-Sample API request:
+API endpoint:
 GET https://api.spotify.com/v1/tracks/{id}
 
 Sample CURL command (needs Bearer, which is provided after clicking the 'Log in with Spotify' button of this app):
@@ -86,6 +86,8 @@ PART OF RESPONSE:
 ```
 
 3. GET THE ENERGY AND VALENCE OF A EACH TRACK with TRACK ID:
+
+API endpoint:
 GET https://api.spotify.com/v1/audio-features/{id}
 
 CURL:
