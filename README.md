@@ -32,7 +32,17 @@ SPOTIFY_SECRET=6************c
 6. You should see the following:
 ![screenshot](images/screenshot2.png)
 
+##### TODO checklist:
+- [ ] Validate the app and not the user
+- [ ] Take in playlist ID
+- [ ] Query the API for that playlist's tracks
+- [ ] Target each track's energy and valence object properties 
+- [ ] Plot those pieces of data using d3.js
+- [ ] Deploy to Heroku
+ 
 ##### Example API queries: 
+
+##### Example API endpoints: 
 
 1. GET A PLAYLIST’S TRACKS (and IDs):
 
@@ -54,7 +64,7 @@ PART OF RESPONSE:
           "uri" : "spotify:artist:21451j1KhjAiaYKflxBjr1"
         } ],
 ```
-
+-----
 2. FROM THAT RESPONSE OBJECT TARGET EACH TRACK’S ID:
 
 API endpoint:
