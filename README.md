@@ -19,7 +19,7 @@ As far as architecture styles, this is on it's way to becoming a RESTful API.
 
 ##### To get started with this app:
 1. Clone this repo to your local machine.
-2. Create a .env file at the root level and include your own client ID and secret key provided when you registered your version of this app. Your .env file should look something like this-->
+2. Create a .env file at the root level and include your own client ID and secret key provided when you registered your version of this app on Spotify. Your .env file should look something like this-->
 ```
 # Spotify API keys for .env
 
