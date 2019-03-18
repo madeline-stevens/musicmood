@@ -9,7 +9,7 @@ A Spotify API playlist app that takes in a playlist ID and returns the energy (i
 ##### Software platform: 
 Node.js 
 ##### Third party js libraries:  
-Bootstrap, Handlebars (this is from the spotify authentication example code I used in my app). I'd like to use chart.js or d3.js to plot the data points of each track in each playlist, maybe use overlapping colors for energy and valence or a dual-scale bar chart (this looks like a great resource for [dual-scale bar charts](https://medium.com/@vaibhavkumar_19430/how-to-create-a-grouped-bar-chart-in-d3-js-232c54f85894)). 
+Bootstrap, Handlebars (these are both from the spotify authentication example code I used in my app). I'd like to use chart.js or d3.js to plot the data points of each track in each playlist, maybe use overlapping colors for energy and valence or a dual-scale bar chart (this looks like a great resource for [dual-scale bar charts](https://medium.com/@vaibhavkumar_19430/how-to-create-a-grouped-bar-chart-in-d3-js-232c54f85894)). 
 
 ![screenshot](images/screenshot3.png)
 
