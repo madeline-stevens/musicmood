@@ -14,7 +14,6 @@ Bootstrap, Handlebars (these are both from the spotify authentication example co
 ![screenshot](images/screenshot3.png)
 
 ##### General development patterns: 
-As far as architecture styles, this is on it's way to becoming a RESTful API. 
 
 ##### Resources:
 1. Understanding OAuth with the Spotify API - #12 React JS prototyping [youtube video](https://www.youtube.com/watch?v=f5OLDvwP-Ug).
