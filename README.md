@@ -1,5 +1,5 @@
 # musicmood
-A Spotify API playlist app that takes in a playlist ID and returns the energy (intensity and activity) and valence (musical positiveness) for each track. 
+A Spotify API playlist app that takes in a playlist ID and returns the energy (intensity and activity) and valence (musical positiveness) for each track. These values range from 0.0 to 1.0 and are present for every song.
 
 ![screenshot](images/screenshot.png)
 
