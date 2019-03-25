@@ -9,7 +9,7 @@ A Spotify API playlist app that takes in a playlist ID and returns the energy (i
 ##### Software platform: 
 Node.js 
 ##### Third party js libraries:  
-Bootstrap, Handlebars (these are both from the spotify authentication example code I used in my app). I'd like to use chart.js or d3.js to plot the data points of each track in each playlist, maybe use overlapping colors for energy and valence or a dual-scale bar chart (this looks like a great resource for [dual-scale bar charts](https://medium.com/@vaibhavkumar_19430/how-to-create-a-grouped-bar-chart-in-d3-js-232c54f85894)). 
+Bootstrap, Handlebars (these are both from the spotify authentication example code I used in my app). I'd like to use chart.js or d3.js to plot the data points of each track in each playlist, maybe use overlapping colors for energy and valence or a dual-scale bar chart (this looks like a great resource for [dual-scale bar charts](https://medium.com/@vaibhavkumar_19430/how-to-create-a-grouped-bar-chart-in-d3-js-232c54f85894)). The below image is a mock up of what my data visualization could look like, but with some minor tweeks like color variation I think it could really convey the mood of each track. 
 
 ![screenshot](images/screenshot3.png)
 
@@ -22,7 +22,7 @@ As far as architecture styles, this is on it's way to becoming a RESTful API.
 
 ##### To get started with this app:
 1. Clone this repo to your local machine.
-2. Create a .env file at the root level and include your own client ID and secret key provided when you registered your version of this app on Spotify. Your .env file should look something like this-->
+2. Create a .env file at the root level and include your own client ID and secret key provided when you registered your version of this app on Spotify. Your .env file should look something like this:
 ```
 # Spotify API keys for .env
 
