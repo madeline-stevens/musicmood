@@ -1,5 +1,5 @@
 # musicmood
-A Spotify API playlist app that takes in a playlist ID and returns the energy (intensity and activity) and valence (musical positiveness) for each track. These values range from 0.0 to 1.0 and are present for every song.
+A Spotify API playlist app that takes in a playlist ID and returns the energy (intensity and activity) and valence (musical positiveness) for each track. 
 
 ![screenshot](images/screenshot.png)
 
@@ -14,6 +14,7 @@ Bootstrap, Handlebars (these are both from the spotify authentication example co
 ![screenshot](images/screenshot3.png)
 
 ##### General development patterns: 
+As far as architecture styles, this is on it's way to becoming a RESTful API. 
 
 ##### Resources:
 1. Understanding OAuth with the Spotify API - #12 React JS prototyping [youtube video](https://www.youtube.com/watch?v=f5OLDvwP-Ug).
@@ -36,7 +37,8 @@ SPOTIFY_SECRET=6************c
 
 ##### TODO checklist:
 - [ ] Validate the app and not the user
-- [ ] Take in playlist ID
+- [ ] More research needed to figure out User ID/Playlist ID combo form input
+- [ ] Take in playlist ID (this ID can be found in the URL of the playlist)
 - [ ] Query the API for that playlist's tracks
 - [ ] Target each track's energy and valence object properties 
 - [ ] Plot those pieces of data using d3.js
