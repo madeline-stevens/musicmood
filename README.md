@@ -48,25 +48,40 @@ SPOTIFY_SECRET=6************c
 
 ##### Example API endpoints: 
 
-1. GET A PLAYLIST’S TRACKS (and IDs):
+1. GET A PLAYLIST’S TRACKS (and IDs): THIS GETS ENERGY AND VALENCE IT TURNS OUT!!!!!
 
 API endpoint:
 GET https://api.spotify.com/v1/playlists/{playlist_id}/tracks
 
-Working curl command (to be pasted into command line):
+Working curl command (to be pasted into command line; playlist id taken from my personal spotify):
 ```
-curl -X GET "https://api.spotify.com/v1/playlists/21THa8j9TaSGuXYNBU5tsC/tracks" -H "Authorization: Bearer BQDgx7jP5lkaxg8dE-qejx0aplXjYIsnaHxRARSv4XqVwFt_nhAd328h40PNtIAAaoNUzpVa951bxKc32uryJvwAvStDoDbP8-i7RGgiIeBmd13krhUfcsj5sWGN2dZRtgeGHBXnJEwqhHcZ2F7cNNFAN8RzDfjI"
+curl -X GET "https://api.spotify.com/v1/playlists/7qMLnhjM68NlrN4qpOHzYP/tracks" -H "Authorization: Bearer BQAfEmHj1rxon0QSmn5XE784QjZEmlaWFzLaVPV7uJEmXZE_izLvf64hmeAFl40GEgOKYGP_kRcJQ92KAR7jgONhwORmrYDwbh5vEcuE3vHPONLRhSGli7NUwiFs8TqmMFiN80Q8orWpO0he1oStyu98SB2D357h&refresh_token=AQBxW2rBU4yQ9GYwXmt3z5zu3-NHIQRhWIbcwN6tbX-kpbWn1hk_bf7oO82oZQJDcJK4jQpJYeyv1ET912FsjS1CIhrX1pOqOZ49bCCnbQR0Mf2_XQ0eHEvK96YAU3gdpYsUvw"
 ```
 
 PART OF RESPONSE:
 ```json
-       },
-          "href" : "https://api.spotify.com/v1/artists/21451j1KhjAiaYKflxBjr1",
-          "id" : "21451j1KhjAiaYKflxBjr1",
-          "name" : "Zion & Lennox",
-          "type" : "artist",
-          "uri" : "spotify:artist:21451j1KhjAiaYKflxBjr1"
-        } ],
+      {
+  "audio_features" : [ {
+    "danceability" : 0.366,
+    "energy" : 0.963, <-------- 
+    "key" : 11,
+    "loudness" : -5.301,
+    "mode" : 0,
+    "speechiness" : 0.142,
+    "acousticness" : 0.000273,
+    "instrumentalness" : 0.0122,
+    "liveness" : 0.115,
+    "valence" : 0.211, <--------
+    "tempo" : 137.114,
+    "type" : "audio_features",
+    "id" : "7ouMYWpwJ422jRcDASZB7P",
+    "uri" : "spotify:track:7ouMYWpwJ422jRcDASZB7P",
+    "track_href" : "https://api.spotify.com/v1/tracks/7ouMYWpwJ422jRcDASZB7P",
+    "analysis_url" : "https://api.spotify.com/v1/audio-analysis/7ouMYWpwJ422jRcDASZB7P",
+    "duration_ms" : 366213,
+    "time_signature" : 4
+  }, {
+
 ```
 -----
 2. FROM THAT RESPONSE OBJECT TARGET EACH TRACK’S ID:
@@ -99,7 +114,7 @@ PART OF RESPONSE:
     "available_markets": [
 ```
 
-3. GET THE ENERGY AND VALENCE OF A EACH TRACK with TRACK ID:
+3. GET THE ENERGY AND VALENCE OF A EACH TRACK with TRACK ID: CAN GET THIS WITH ENDPOINT #1 IT TURNS OUT!!!!!!!!!!
 
 API endpoint:
 GET https://api.spotify.com/v1/audio-features/{id}
