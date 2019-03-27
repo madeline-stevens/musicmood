@@ -34,7 +34,7 @@ SPOTIFY_SECRET=6************c
 4. Right click on app.js in the sidebar, choose open in terminal, run ```node app.js```. Should see ```Listening on 8888```.
 5. Open your chrome browser and navigate to localhost:8888.
 6. You should see the following:
-![screenshot](images/screenshot2.png)
+![screenshot](images/screenshot4.png)
 
 ##### TODO checklist:
 - [ ] Validate the app and not the user
