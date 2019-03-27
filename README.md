@@ -14,7 +14,7 @@ Bootstrap, Handlebars (these are both from the spotify authentication example co
 ![screenshot](images/screenshot3.png)
 
 ##### General development patterns: 
-As far as architecture styles, this is on it's way to becoming a RESTful API. 
+As far as architecture styles, this is on it's way to becoming a RESTful API.
 
 ##### Resources:
 1. Understanding OAuth with the Spotify API - #12 React JS prototyping [youtube video](https://www.youtube.com/watch?v=f5OLDvwP-Ug).
@@ -45,12 +45,13 @@ SPOTIFY_SECRET=6************c
 - [ ] Plot those pieces of data using d3.js
 - [ ] Deploy to Heroku
  
-##### Example API queries: 
-1. write something that allows us to test our token
-2. then make sure our query string works
-3. then get our data
-4. singleton (he works with sockets and its a good idea to only have one instance of htat) How would i build this in a work environment 
 
+1. write something that allows me to test my token
+2. then make sure my query string works
+3. then get data 
+4. singleton (he works with sockets and its a good idea to only have one instance of htat) How would i build this in a work environment
+
+##### Example API queries: 
 
 ##### Example API endpoints: 
 
@@ -59,17 +60,16 @@ SPOTIFY_SECRET=6************c
 API endpoint:
 - GET https://api.spotify.com/v1/playlists/{playlist_id}
 
-
-NOTES!!!!
 API request: 
 includes the above and header info 
 
+Notes:
 app.get is used to define and endpoint within my app (ex: app.get('/playlist, function (req, res)))
 we are using superagent to actually write an api request and query spotify 
 we can see the curl command and get a good idea but need to google how to use superagend to incorporate bearer auth
 
-- My Playlist: https://open.spotify.com/user/1255254821/playlist/7qMLnhjM68NlrN4qpOHzYP?si=5leCtMKcS96sVTsOBKIdew
-- My test playlist: https://open.spotify.com/user/1255254821/playlist/0iGyenYDTB4968ankt90dh?si=1cdV6KWTTgql843wNwR-3Q
+- My Playlist (150 tracks?): https://open.spotify.com/user/1255254821/playlist/7qMLnhjM68NlrN4qpOHzYP?si=5leCtMKcS96sVTsOBKIdew
+- My test playlist (4 tracks): https://open.spotify.com/user/1255254821/playlist/0iGyenYDTB4968ankt90dh?si=1cdV6KWTTgql843wNwR-3Q
 
 - Working curl command (to be pasted into command line; playlist ID taken from my personal spotify):
 ```
@@ -143,12 +143,6 @@ PART OF RESPONSE:
 API endpoint:
 GET https://api.spotify.com/v1/audio-features/{id}
 
-Tester track ID: 758wEKVqfYopJIHYWdLVd4 (led zeppelin)
-Provided track ID: 06AKEBrKUckW0KREUWRnvT
-
-1. I used the spotify tool to be able to see audio features from the ids that i got from the rpevious curl command, copied/p;asted that data into a file so i could search for "uri" : "spotify:track:189gb58kHUdS5MdLBcz18f"
-
-
 Curl:
 ```
 curl -X GET "https://api.spotify.com/v1/audio-features/22BzOOZKYZ2jYYKLpOlnET" -H "Authorization: Bearer {your access token}"
@@ -185,10 +179,15 @@ RESPONSE:
 
 4. GET AUDIO FEATURES FOR SEVERAL TRACKS by stringing together multiple track IDs:
 
-API endpoint: 
+- API endpoint: 
 GET https://api.spotify.com/v1/audio-features 
 
-Curl (that strings together track IDs with commas): 
+Tester track ID: 758wEKVqfYopJIHYWdLVd4 (led zeppelin)
+Provided track ID: 06AKEBrKUckW0KREUWRnvT
+
+- I used the spotify tool to be able to see audio features from the ids that i got from the previous curl command, copied/pasted that data into a file so i could search for-- "uri" : "spotify:track:189gb58kHUdS5MdLBcz18f"
+
+- Curl (that strings together track IDs with commas): 
 curl -X "GET" "https://api.spotify.com/v1/audio-features?ids=2UjEyfnKzaY7qpBEeESJjv%2C2UjEyfnKzaY7qpBEeESJjv%2C0Wb8Xz77vX6WD5ccPmCz7U" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer BQATEKY_VzMxSqq4ePyEKHVOE2EXDlIFlKj6sZCjG8CNPq1So2Ph5C4vnht7rKpJWGhlnSv2hrPtINX5CRyf061zCnAdU6Cf2M13dz670A1Sw30-4o14k4qAfxbkA5oewUZGunJIEcAO7eSEfpM0gUdk1EA"
 
 RESPONSE:
