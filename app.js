@@ -13,6 +13,10 @@ var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
+//can you this library or superagent
+// const https = require("https");
+
+
 //Maddy added -require dotenv
 require("dotenv").config();
 
@@ -152,6 +156,8 @@ app.get('/refresh_token', function(req, res) {
 //playlist rough draft (i need this get request to be able to pick up on the client id and secret but i'm also not sure how to handle the click of the button)
 // app.get('/playlist', function(req, res){
 // })
+
+
 
 
 console.log('Listening on 8888');

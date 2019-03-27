@@ -19,6 +19,7 @@ As far as architecture styles, this is on it's way to becoming a RESTful API.
 ##### Resources:
 1. Understanding OAuth with the Spotify API - #12 React JS prototyping [youtube video](https://www.youtube.com/watch?v=f5OLDvwP-Ug).
 2. Spotify Accounts Authentication Examples [github](https://github.com/spotify/web-api-auth-examples).
+3. Similar app written with python- https://github.com/rafin/Spotify-Visualizations (http://plotify.herokuapp.com)
 
 ##### To get started with this app:
 1. Clone this repo to your local machine.
@@ -45,46 +46,69 @@ SPOTIFY_SECRET=6************c
 - [ ] Deploy to Heroku
  
 ##### Example API queries: 
+1. write something that allows us to test our token
+2. then make sure our query string works
+3. then get our data
+4. singleton (he works with sockets and its a good idea to only have one instance of htat) How would i build this in a work environment 
+
 
 ##### Example API endpoints: 
 
-1. GET A PLAYLIST’S TRACKS (and IDs): THIS GETS ENERGY AND VALENCE IT TURNS OUT!!!!!
+1. GET A PLAYLIST’S TRACKS (and IDs): 
 
 API endpoint:
-GET https://api.spotify.com/v1/playlists/{playlist_id}/tracks
+- GET https://api.spotify.com/v1/playlists/{playlist_id}
 
-Working curl command (to be pasted into command line; playlist id taken from my personal spotify):
+
+NOTES!!!!
+API request: 
+includes the above and header info 
+
+app.get is used to define and endpoint within my app (ex: app.get('/playlist, function (req, res)))
+we are using superagent to actually write an api request and query spotify 
+we can see the curl command and get a good idea but need to google how to use superagend to incorporate bearer auth
+
+- My Playlist: https://open.spotify.com/user/1255254821/playlist/7qMLnhjM68NlrN4qpOHzYP?si=5leCtMKcS96sVTsOBKIdew
+- My test playlist: https://open.spotify.com/user/1255254821/playlist/0iGyenYDTB4968ankt90dh?si=1cdV6KWTTgql843wNwR-3Q
+
+- Working curl command (to be pasted into command line; playlist ID taken from my personal spotify):
 ```
-curl -X GET "https://api.spotify.com/v1/playlists/7qMLnhjM68NlrN4qpOHzYP/tracks" -H "Authorization: Bearer BQAfEmHj1rxon0QSmn5XE784QjZEmlaWFzLaVPV7uJEmXZE_izLvf64hmeAFl40GEgOKYGP_kRcJQ92KAR7jgONhwORmrYDwbh5vEcuE3vHPONLRhSGli7NUwiFs8TqmMFiN80Q8orWpO0he1oStyu98SB2D357h&refresh_token=AQBxW2rBU4yQ9GYwXmt3z5zu3-NHIQRhWIbcwN6tbX-kpbWn1hk_bf7oO82oZQJDcJK4jQpJYeyv1ET912FsjS1CIhrX1pOqOZ49bCCnbQR0Mf2_XQ0eHEvK96YAU3gdpYsUvw"
+curl -X GET "https://api.spotify.com/v1/playlists/0iGyenYDTB4968ankt90dh/tracks" -H "Authorization: Bearer BQBNmwBFKkWweFQM45zhbmKSLBWc_Hz9kDJIWB_7YAE5mITmD-4Q1EGZV8nab-5XbrT-OTTnfVnGwl0tmqXgZZyaU1TmbA-khM3j33W_5sZGObln6k4NdUTn8rqcjGh9wK2mz1ms5FoKbnWHkM6n7SXZ6JzDjoI2&refresh_token=AQDUj0W9lPrudletXEwAUImhMsCsLpnptbSHx4lr__aSuCMIdm5cu-o-nlwF4ioDoXyRriKdsFGV2wfx1rwGtYdw6LGPulwjH9tOPSaGsPWvqfI5pRAOJeIQ3AQGN8DKClI_iw"
 ```
 
 PART OF RESPONSE:
 ```json
-      {
-  "audio_features" : [ {
-    "danceability" : 0.366,
-    "energy" : 0.963, <-------- 
-    "key" : 11,
-    "loudness" : -5.301,
-    "mode" : 0,
-    "speechiness" : 0.142,
-    "acousticness" : 0.000273,
-    "instrumentalness" : 0.0122,
-    "liveness" : 0.115,
-    "valence" : 0.211, <--------
-    "tempo" : 137.114,
-    "type" : "audio_features",
-    "id" : "7ouMYWpwJ422jRcDASZB7P",
-    "uri" : "spotify:track:7ouMYWpwJ422jRcDASZB7P",
-    "track_href" : "https://api.spotify.com/v1/tracks/7ouMYWpwJ422jRcDASZB7P",
-    "analysis_url" : "https://api.spotify.com/v1/audio-analysis/7ouMYWpwJ422jRcDASZB7P",
-    "duration_ms" : 366213,
-    "time_signature" : 4
-  }, {
+}, {
+    "added_at" : "2015-03-30T04:40:41Z",
+    "added_by" : {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/1255254821"
+      },
+      "href" : "https://api.spotify.com/v1/users/1255254821",
+      "id" : "1255254821",
+      "type" : "user",
+      "uri" : "spotify:user:1255254821"
+    },
+    "is_local" : false,
+    "primary_color" : null,
+    "track" : {
+      "album" : {
+        "album_type" : "compilation",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/0LyfQWJT6nXafLPZqxe9Of"
+          },
+          "href" : "https://api.spotify.com/v1/artists/0LyfQWJT6nXafLPZqxe9Of",
+          "id" : "0LyfQWJT6nXafLPZqxe9Of",
+          "name" : "Various Artists",
+          "type" : "artist",
+          "uri" : "spotify:artist:0LyfQWJT6nXafLPZqxe9Of"
+        } ],
+
 
 ```
 -----
-2. FROM THAT RESPONSE OBJECT TARGET EACH TRACK’S ID:
+2. (may not need) FROM THAT RESPONSE OBJECT TARGET EACH TRACK’S ID: DO I EVEN NEED THIS??
 
 API endpoint:
 GET https://api.spotify.com/v1/tracks/{id}
@@ -114,47 +138,107 @@ PART OF RESPONSE:
     "available_markets": [
 ```
 
-3. GET THE ENERGY AND VALENCE OF A EACH TRACK with TRACK ID: CAN GET THIS WITH ENDPOINT #1 IT TURNS OUT!!!!!!!!!!
+3. (may not need) GET THE ENERGY AND VALENCE OF JUST ONE TRACK with it's TRACK ID:
 
 API endpoint:
 GET https://api.spotify.com/v1/audio-features/{id}
 
-CURL:
+Tester track ID: 758wEKVqfYopJIHYWdLVd4 (led zeppelin)
+Provided track ID: 06AKEBrKUckW0KREUWRnvT
+
+1. I used the spotify tool to be able to see audio features from the ids that i got from the rpevious curl command, copied/p;asted that data into a file so i could search for "uri" : "spotify:track:189gb58kHUdS5MdLBcz18f"
+
+
+Curl:
 ```
-curl -X GET "https://api.spotify.com/v1/audio-features/06AKEBrKUckW0KREUWRnvT" -H "Authorization: Bearer {your access token}"
+curl -X GET "https://api.spotify.com/v1/audio-features/22BzOOZKYZ2jYYKLpOlnET" -H "Authorization: Bearer {your access token}"
 ```
 
 Working curl command (to be pasted into command line):
 ```
-curl -X GET "https://api.spotify.com/v1/audio-features/06AKEBrKUckW0KREUWRnvT" -H "Authorization: Bearer BQDBFZPbbuNT_couEj1cFpiUxrtZQEB2sB8_NeRbUchoyhtAdfn_YElITOo4BPohiAJSfrrtLghlQR7NkBSRzTMTrcYv9pl9QUT5NzvmKqls92A0BxQQ84hpFo8Wt8uE4o2M1xp5dATur7Q11za3LJvPG4pUi4lW&refresh_token=AQD7d1PjBMJ20CBiHkhyoIsw9wtm_Hc5ifgznAMEWS9EeyVPMyds6KUEssG50vcdGQTLqM9B2evhz8GH_REpREK0O6BkaiZWXpTwFzW1MELz9qW5XMRCi4QtYen4cNYalAnPsA"
+curl -X GET "https://api.spotify.com/v1/audio-features/758wEKVqfYopJIHYWdLVd4" -H "Authorization: Bearer BQDWmWGMyl60lgUXbWDEgZluUR36jSIMHWjmACkGGJth8-f67Jd8HmDM9rYavbOQFJHNW_jysmgMVyPjegtkLr8QVAXHTbgO3mqAY-T6l11iMy_pcwqQusg6US47JTZ_2yi2HMnBId8HEwJXxYxC7J7daKZ9IZQA&refresh_token=AQBrgcHjP7eQk4vGrxry6GPmvYsffxe5fmYn5KTw1qCuntlvQ8lYvuR34KId-191pIkE3XBudyY9FW5pTcd8EBA-h-9frHrzAbrTryUmtNprSFEp4_9XKUxTCy-KPdmsIOA3WQ"
 ```
 
 RESPONSE:
 ```json
 {
-  "danceability" : 0.735,
-  "energy" : 0.578,
-  "key" : 5,
-  "loudness" : -11.840,
+  "danceability" : 0.492,
+  "energy" : 0.862, <--------
+  "key" : 4,
+  "loudness" : -9.158,
   "mode" : 0,
-  "speechiness" : 0.0461,
-  "acousticness" : 0.514,
-  "instrumentalness" : 0.0902,
-  "liveness" : 0.159,
-  "valence" : 0.636,
-  "tempo" : 98.002,
+  "speechiness" : 0.0273,
+  "acousticness" : 0.0121,
+  "instrumentalness" : 0.213,
+  "liveness" : 0.228,
+  "valence" : 0.591, <----------
+  "tempo" : 112.598,
   "type" : "audio_features",
-  "id" : "06AKEBrKUckW0KREUWRnvT",
-  "uri" : "spotify:track:06AKEBrKUckW0KREUWRnvT",
-  "track_href" : "https://api.spotify.com/v1/tracks/06AKEBrKUckW0KREUWRnvT",
-  "analysis_url" : "https://api.spotify.com/v1/audio-analysis/06AKEBrKUckW0KREUWRnvT",
-  "duration_ms" : 255349,
+  "id" : "758wEKVqfYopJIHYWdLVd4",
+  "uri" : "spotify:track:758wEKVqfYopJIHYWdLVd4",
+  "track_href" : "https://api.spotify.com/v1/tracks/758wEKVqfYopJIHYWdLVd4",
+  "analysis_url" : "https://api.spotify.com/v1/audio-analysis/758wEKVqfYopJIHYWdLVd4",
+  "duration_ms" : 292800,
   "time_signature" : 4
 }
 ```
 
-Also worth looking into--> GET AUDIO FEATURES FOR SEVERAL TRACKS:
+4. GET AUDIO FEATURES FOR SEVERAL TRACKS by stringing together multiple track IDs:
+
+API endpoint: 
 GET https://api.spotify.com/v1/audio-features 
+
+Curl (that strings together track IDs with commas): 
+curl -X "GET" "https://api.spotify.com/v1/audio-features?ids=2UjEyfnKzaY7qpBEeESJjv%2C2UjEyfnKzaY7qpBEeESJjv%2C0Wb8Xz77vX6WD5ccPmCz7U" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer BQATEKY_VzMxSqq4ePyEKHVOE2EXDlIFlKj6sZCjG8CNPq1So2Ph5C4vnht7rKpJWGhlnSv2hrPtINX5CRyf061zCnAdU6Cf2M13dz670A1Sw30-4o14k4qAfxbkA5oewUZGunJIEcAO7eSEfpM0gUdk1EA"
+
+RESPONSE:
+
+```json
+{
+  "audio_features": [
+    {
+      "danceability": 0.709,
+      "energy": 0.831,
+      "key": 2,
+      "loudness": -6.847,
+      "mode": 0,
+      "speechiness": 0.0391,
+      "acousticness": 0.108,
+      "instrumentalness": 0.00128,
+      "liveness": 0.159,
+      "valence": 0.866,
+      "tempo": 104.971,
+      "type": "audio_features",
+      "id": "2UjEyfnKzaY7qpBEeESJjv",
+      "uri": "spotify:track:2UjEyfnKzaY7qpBEeESJjv",
+      "track_href": "https://api.spotify.com/v1/tracks/2UjEyfnKzaY7qpBEeESJjv",
+      "analysis_url": "https://api.spotify.com/v1/audio-analysis/2UjEyfnKzaY7qpBEeESJjv",
+      "duration_ms": 227067,
+      "time_signature": 4
+    },
+    {
+      "danceability": 0.743,
+      "energy": 0.9,
+      "key": 1,
+      "loudness": -7.316,
+      "mode": 0,
+      "speechiness": 0.059,
+      "acousticness": 0.00047,
+      "instrumentalness": 0.503,
+      "liveness": 0.103,
+      "valence": 0.806,
+      "tempo": 99.966,
+      "type": "audio_features",
+      "id": "0Wb8Xz77vX6WD5ccPmCz7U",
+      "uri": "spotify:track:0Wb8Xz77vX6WD5ccPmCz7U",
+      "track_href": "https://api.spotify.com/v1/tracks/0Wb8Xz77vX6WD5ccPmCz7U",
+      "analysis_url": "https://api.spotify.com/v1/audio-analysis/0Wb8Xz77vX6WD5ccPmCz7U",
+      "duration_ms": 168133,
+      "time_signature": 4
+    }
+  ]
+}
+```
 
 
 HELPFUL NOTES IN DOCUMENTATION:

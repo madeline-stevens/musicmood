@@ -57,7 +57,7 @@
         </main>
     <div class="container">
       <div id="login">
-        <h1>This is an example of the Authorization Code flow</h1>
+        <h5>This is an example of the Authorization Code flow</h5>
         <a href="/login" class="btn btn-primary">Log in with Spotify</a>
       </div>
       <div id="loggedin">
@@ -70,7 +70,7 @@
     </div>
 
     <script id="user-profile-template" type="text/x-handlebars-template">
-      <h1>Logged in as {{display_name}}</h1>
+      <h5>Logged in as {{display_name}}</h5>
       <div class="media">
         <div class="pull-left">
          
@@ -111,6 +111,7 @@
             .trim();
 
       //function that could be called here to render playlist info
+
       //constructing query string
       var queryURL = 'https://api.spotify.com/v1/playlists/' + playlist_id + '/tracks'
         //performing ajax request with the query url
@@ -127,7 +128,7 @@
 
           });
         });
-    
+    //end of click handler
 
         /**
          * Obtains parameters from the hash of the URL
